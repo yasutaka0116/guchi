@@ -48,3 +48,13 @@ end
 gem 'pry-rails'
 
 gem 'devise'
+
+gem 'bootstrap-sass'
+
+gem 'jquery-ui-rails'
+
+gem 'jquery-turbolinks'
+
+gem 'carrierwave'
+
+gem 'rmagick'
