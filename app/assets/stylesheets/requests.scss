@@ -1,0 +1,135 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+/*------------ request index -----------*/
+.wrap{
+   width:1170px;
+   margin:0 auto 150px;
+}
+
+
+.top-icon{
+  margin-top:100px;
+  text-align: center;
+}
+
+.top-icon li{
+  width:25%;
+   display: inline-block;
+}
+/*---------index.  box---------------*/
+
+
+.box{
+  margin-top:50px;
+  width:33%;
+  height:400px;
+  float:left;
+  border-style: ridge;
+}
+
+.avatar{
+  height:150px;
+  padding:5px;
+}
+
+.avatar-center{
+  width:50%;
+  margin:0 auto;
+}
+
+.user-name{
+  text-align:center;
+}
+
+.which{
+  height:100px;
+  background:yellow;
+  padding-top:20px;
+}
+
+.which-side{
+  height:30px;
+  background:black;
+}
+.coast{
+  width:33%;
+  height:100%;
+  margin:0 auto;
+  background:yellow;
+}
+
+.state{
+  width:60%;
+  height:80px;
+  margin:0 auto;
+}
+/*------request register------*/
+
+.regsiter-body{
+  width:600px;
+  margin:0 auto;
+}
+
+/*------detail body--------*/
+
+.detail{
+  width:800px;
+  height:500px;
+  margin:0 auto;
+  background:#808080;
+  margin-top:50px;
+}
+
+.detail-body{
+  padding:20px 20px 20px 20px;
+}
+.float{
+  height:200px;
+}
+
+.detail-avatar{
+  width:30%;
+  float:left;
+}
+
+
+.meeting-date{
+}
+
+.meeting-message{
+  margin-bottom:100px;
+}
+
+.meeting-request{
+  width:100px;
+  height:50px;
+  margin:0 auto;
+  background:red;
+}
+
+/*-------mypage ------*/
+
+.mypage{
+  width:800px;
+  height:500px;
+  margin:0 auto;
+  background:#808080;
+  margin-top:50px;
+}
+
+.mypage-body{
+  padding:20px 20px 20px 20px;
+}
+
+
+
+/*------- footer--------------*/
+
+
+footer{
+  background:#e7e7e7;
+  height:150px;
+  width:100%;
+}
