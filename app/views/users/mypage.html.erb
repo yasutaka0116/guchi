@@ -1,0 +1,22 @@
+<div class="wrap">
+  <div class="mypage">
+    <div class="mypage-body">
+      <div class="float">
+         <div class="detail-avatar">
+          <div class="avatar-center">
+            <!-- <img src="assets/images.jpg" alt="no image" class="img-circle"  width="140px" height="140px"> -->
+            <%= image_tag current_user.image ,style: "width: 140px; height: 140px;" %>
+          </div>
+        </div>
+        <div class="mypage-for">
+          <p><%= current_user.name %></p>
+          <p><%= current_user.age %></p>
+          <p><%= current_user.gender %></p>
+        </div>
+      </div>
+      <div class="meeting-message">
+        <p><%= current_user.introduction %></p>
+      </div>
+    </div>
+  </div>
+</div>
