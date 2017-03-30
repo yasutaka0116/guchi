@@ -1,0 +1,25 @@
+<div class="wrap">
+  <div class="detail">
+    <div class="detail-body">
+      <div class="float">
+        <div class="detail-avatar">
+          <div class="avatar-center">
+            <!-- <img src="assets/images.jpg" alt="no image" class="img-circle"  width="140px" height="140px"> -->
+            <%= image_tag(@request.user.image, :class=>"img-circle", :alt => "no image", :size => "140x140") %>
+          </div>
+        </div>
+        <div class="meeting-date">
+          <P><%= @request.date %></P>
+          <p><%= @request.state %></p>
+          <p><%= @request.address %></p>
+        </div>
+      </div>
+      <div class="meeting-message">
+        <p><%= @request.message %></p>
+      </div>
+      <div class="meeting-request">
+        <a href="">愚痴を言う</a>
+      </div>
+    </div>
+  </div>
+</div>

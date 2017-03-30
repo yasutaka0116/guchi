@@ -1,0 +1,60 @@
+<div class="wrap">
+    <div class="top-icon">
+      <ul class="list-inline">
+        <li>聞く</li>
+        <li>いう</li>
+        <li>登録</li>
+      </ul>
+    </div>
+    <div class="regsiter-body">
+        <h2>登録する</h2>
+    <%= form_for @request , :url => {:action => 'create'} do |f| %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+    <div class="meeting">
+         <div id='mode' class="btn-group" data-toggle="buttons">
+                <label class="btn btn-primary active">
+                    <%= f.radio_button :role, 0 %>
+                    愚痴を聞く
+                </label>
+                <label class="btn btn-primary">
+                    <%= f.radio_button :role, 1 %>
+                    愚痴を吐く
+                </label>
+        </div>
+        <div class="date">
+            <%= f.label :date, "日にちを選択してください" %>
+            <%= f.text_field :date, :id => "book_published_at" %>
+        </div>
+        <div class="timebox">
+            <%= f.label :starttime, "時間を指定してください" %>
+            <%= f.select :starttime, [*1..24] %>
+            <span>時</span>
+            <span>～</span>
+            <!-- <%= f.label :endtime ,""%> -->
+            <%= f.select :endtime, [*1..24] %>
+        <div class="areabox">
+            <%= f.label :state, "開催する都道府県を選択してください" %>
+            <%= f.select :state, ["北海道","青森県","岩手県","宮城県","秋田県","山形県","福島県",
+                            "茨城県","栃木県","群馬県","埼玉県","千葉県","東京都","神奈川県",
+                            "新潟県","富山県","石川県","福井県","山梨県","長野県","岐阜県",
+                            "静岡県","愛知県","三重県","滋賀県","京都府","大阪府","兵庫県",
+                            "奈良県","和歌山県","鳥取県","島根県","岡山県","広島県","山口県",
+                            "徳島県","香川県","愛媛県","高知県","福岡県","佐賀県","長崎県",
+                            "熊本県","大分県","宮崎県","鹿児島県","沖縄県"] %>
+        </div>
+        <div class="placebox">
+            <%= f.label :address, "住所を指定してください" %>
+            <%= f.text_area :address , :size => "40x1"%>
+         </div>
+        <div class="messagebox">
+            <%= f.label :message, "一言メッセージ" %>
+            <%= f.text_area :message , :size => "250x4"%>
+        </div>
+        <div class="">
+            <%= f.submit %>
+            <!-- <input type="button" value="登録"> -->
+        </div>
+    </div>
+    <% end %>
+    </div>
+</div>

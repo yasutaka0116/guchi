@@ -1,0 +1,25 @@
+<%= link_to request_path(request.id) do %>
+  <div class = "box col-md-4" >
+    <div class="avatar">
+      <div class="avatar-center">
+        <!-- <img src="assets/images.jpg" alt="no image" class="img-circle"  width="140px" height="140px"> -->
+        <%= image_tag(request.user.image, :class=>"img-circle", :alt => "no image", :size => "140x140") %>
+      </div>
+    </div>
+    <p class="user-name"><%= request.user.name %> </p>
+    <div class="which">
+      <div class="which-side">
+        <div class="coast"><%= request.date %></div>
+      </div>
+      <p><%= request.message %></p>
+    </div>
+    <div class="state">
+      <p class="text-center"><%= request.state %></p>
+      <p class="text-center"><%= request.starttime %>～<%= request.endtime %></p>
+      <p class="text-center"><%= request.address %></p>
+    </div>
+    <div class="btn">
+      <a href="request/id">愚痴る</a>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,19 @@
+<!-- <div class="container-fluid"> -->
+  <div class="wrap">
+    <div class="top-icon">
+      <ul class="list-inline">
+        <li>聞く</li>
+        <li class="active" id="js-active">
+          <%= link_to "聞いてくれる", requests_lithen_path, remote: true %>
+        </li>
+        <li id="js-active">
+          <%= link_to "愚痴りたい人", requests_grumbl_path, remote: true  %>
+        </li>
+        <li>
+          <%= link_to "登録", new_request_path %>
+        </li>
+    </div>
+    <div class="container" id= "request">
+      <%= render partial: 'requests/request', collection: @requests %>
+    </div>
+  </div>
