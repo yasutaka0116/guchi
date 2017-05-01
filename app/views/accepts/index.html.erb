@@ -1,0 +1,22 @@
+<div class="wrap">
+  <div class="container">
+  <p>あなた宛てのリクエスト</p>
+  <% @accepts.each do |accept| %>
+  <div class="acceptsbox">
+    <div class="request">
+      <%= accept.request.date %> &nbsp;&nbsp;&nbsp;<%= accept.request.starttime %>～<%= accept.request.endtime %>にリクエストがありました
+    </div>
+    <div class="request-box">
+      <div class="request-user_avatar">
+        <%= image_tag(accept.user.image, size: "50x50", alt: "no image") %>
+      </div>
+      <div class="request-user_name"><%= accept.user.name %></div>
+      <div class="request-user_message"><%= accept.message %></div>
+      <div class="request-submit">
+        <%= link_to "承認", accept_path(accept.id), method: :patch %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  </div>
+</div>

@@ -15,10 +15,17 @@
         </div>
       </div>
       <div class="meeting-message">
-        <p><%= @request.message %></p>
+        <p><%= @request.accepts.count %></p>
       </div>
       <div class="meeting-request">
-        <a href="">愚痴を言う</a>
+        <%=  form_for @accept do |f|%>
+          <%= f.label :message, "リクエスト" %>
+          <%= f.text_area :message, size: "250x4" %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.hidden_field :request_id, value: @request.id %>
+          <%= f.hidden_field :flag, value: 0 %>
+        <%= f.submit %>
+        <% end %>
       </div>
     </div>
   </div>

@@ -1,4 +1,3 @@
-<%= link_to request_path(request.id) do %>
   <div class = "box col-md-4" >
     <div class="avatar">
       <div class="avatar-center">
@@ -19,7 +18,6 @@
       <p class="text-center"><%= request.address %></p>
     </div>
     <div class="btn">
-      <a href="request/id">愚痴る</a>
+      <%= link_to "愚痴る", request_path(request.id) %>
     </div>
   </div>
-<% end %>

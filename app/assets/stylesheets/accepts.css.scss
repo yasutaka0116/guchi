@@ -1,0 +1,48 @@
+.acceptsbox{
+  width:800px;
+  // height: 100px;
+  background: green;
+  margin:10px auto;
+  // position:relative;
+}
+
+.request{
+  // position:absolute;
+  padding:10px;
+  // top:10px;
+  // left:10px;
+  font-size: 18px;
+}
+
+.request-box{
+  position:relative;
+  margin: 0 10px 10px;
+  background: black;
+}
+
+.request-user_avatar{
+}
+
+.request-user_name{
+  // position:absolute;
+  // left:70px;
+  // top:10px;
+  padding-left:5px;
+}
+
+.request-user_message{
+  position:absolute;
+  left:70px;
+  top:10px;
+  width:600px;
+}
+
+.request-submit{
+  height:50px;
+  width:100px;
+  background: yellow;
+  position:absolute;
+  top:10px;
+  left:680px;
+}
+
