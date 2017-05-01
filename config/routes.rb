@@ -5,14 +5,14 @@ Rails.application.routes.draw do
 
   get 'requests/lithen'  => 'requests/lithen#index'
   get 'requests/grumbl'  => 'requests/grumbl#index'
-
   resources :requests
+  resources :accepts
+  resources :talks
 
   # get 'requests/new'  => 'requests#new'
   # post 'requests/create'  => 'requests#create'
 
   # get 'requests/:id'  => 'requests#show'
-
 
   get 'users/mypage'  => 'users#mypage'
 
