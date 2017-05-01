@@ -1,4 +1,5 @@
 class RequestsController < ApplicationController
+   before_action :authenticate_user!, only:[:index]
 
   def index
     @requests = Request.all.includes(:user)
@@ -17,6 +18,7 @@ class RequestsController < ApplicationController
 
   def show
     @request=Request.find(params[:id])
+    @accept = Accept.new
   end
 
    private
