@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170329084958) do
+ActiveRecord::Schema.define(version: 20170426063008) do
 
   create_table "accepts", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -26,9 +26,9 @@ ActiveRecord::Schema.define(version: 20170329084958) do
   add_index "accepts", ["user_id"], name: "fk_rails_3ff904bb61", using: :btree
 
   create_table "requests", force: :cascade do |t|
+    t.integer  "user_id_id", limit: 4
     t.string   "state",      limit: 255
     t.string   "address",    limit: 255
-    t.integer  "user_id",    limit: 4
     t.integer  "starttime",  limit: 4
     t.integer  "endtime",    limit: 4
     t.text     "message",    limit: 65535
@@ -36,7 +36,31 @@ ActiveRecord::Schema.define(version: 20170329084958) do
     t.datetime "updated_at",               null: false
     t.date     "date"
     t.integer  "role",       limit: 4
+    t.integer  "user_id",    limit: 4
   end
+
+  add_index "requests", ["user_id"], name: "index_requests_on_user_id", using: :btree
+
+  create_table "rooms", force: :cascade do |t|
+    t.integer  "user_one_id", limit: 4
+    t.integer  "user_two_id", limit: 4
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  add_index "rooms", ["user_one_id"], name: "fk_rails_dd77a41cea", using: :btree
+  add_index "rooms", ["user_two_id"], name: "fk_rails_4d126e7bcb", using: :btree
+
+  create_table "talks", force: :cascade do |t|
+    t.integer  "send_user_id", limit: 4
+    t.integer  "user_id",      limit: 4
+    t.text     "message",      limit: 65535
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "talks", ["send_user_id"], name: "fk_rails_5618d5bb90", using: :btree
+  add_index "talks", ["user_id"], name: "fk_rails_8f6036676e", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255,   default: "", null: false
@@ -63,4 +87,8 @@ ActiveRecord::Schema.define(version: 20170329084958) do
 
   add_foreign_key "accepts", "requests"
   add_foreign_key "accepts", "users"
+  add_foreign_key "rooms", "users", column: "user_one_id"
+  add_foreign_key "rooms", "users", column: "user_two_id"
+  add_foreign_key "talks", "users"
+  add_foreign_key "talks", "users", column: "send_user_id"
 end
