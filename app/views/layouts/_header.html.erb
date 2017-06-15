@@ -1,7 +1,68 @@
 
 <!-- <div class="container-fluid"> -->
 <header>
-<nav class="navbar navbar-default navbar-fixed-top">
+<div class="l-nav-bar"></div>
+<div class="l-nav-area">
+  <div class="nav-container">
+    <div class="l-nav-left">
+      <h1>
+      <%= link_to "グチろう", root_path %>
+      </h1>
+    </div>
+      <em class="weight">&emsp;&emsp;愚痴でつながるマッチングサービス</em>
+      <div class="l-nav-right">
+        <ul class="">
+          <% if user_signed_in? %>
+            <li class="l-nav-link">
+              <%= link_to  rooms_path do %>
+              <%= fa_icon "comment-o", text: "トーク" %>
+                <!-- <img src="../images/chat.png" alt="チャット" style="width:30px; height:30px;"> -->
+              <% end %>
+            </li>
+            <li class="l-nav-link">
+              <%= link_to accepts_path do %>
+                <!-- <img src="../images/accept.png" alt="チャット" style="width:30px; height:30px;"> -->
+              <%= fa_icon "plus-square-o", text: "リクエスト" %>
+              <% end %>
+            </li>
+            <li class="l-nav-link l-nav-user">
+              <%= link_to user_path(current_user.id) do %>
+                <%= fa_icon "user-circle", text: current_user.name %>
+              <% end %>
+              <div class="caret" id="slide"></div>
+              <div class="l-nav-submenu">
+                  <ul>
+                    <li class=>
+                      <%= link_to edit_user_registration_path, class: '' do%>
+                        <%= fa_icon "cog", text: "設定" %>
+                      <% end %>
+                    </li>
+                    <li>
+                      <%= link_to destroy_user_session_path, method: :get do %>
+                        <%= fa_icon "sign-out", text: "ログアウト" %>
+                      <% end %>
+                    </li>
+                  </ul>
+              </div>
+            </li>
+        </ul>
+            <% else %>
+            <li class="l-nav-link">
+                <%= link_to new_user_registration_path do %>
+                  <%= fa_icon "check", text: "登録" %>
+                <% end %>
+            </li>
+            <li class="l-nav-link">
+                <%= link_to new_user_session_path do %>
+                  <%= fa_icon "sign-in", text: "サインイン" %>
+                <% end %>
+            </li>
+            <% end %>
+            </ul>
+      </div>
+  </div>
+</div>
+<!-- <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -10,55 +71,40 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <!-- <a class="navbar-brand" href="#">愚痴ろう</a> -->
-            <%= link_to "愚痴ろう", root_path, class: "navbar-brand" %>
-        </div>
-        <div class="">
-            <ul>
-                <li>
-                  <%= link_to '申請', accepts_path %>
-                </li>
-                <li></li>
-                <li></li>
-            </ul>
+            <%= link_to "愚痴ろう", root_path, class: "navbar-brand" ,data: {"turbolinks" => false}%>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-             <% if user_signed_in? %>
+            <% if user_signed_in? %>
+            <li>
+              <%= link_to 'ルーム', rooms_path%>
+            </li>
+            <li>
+              <%= link_to '申請', accepts_path %>
+            </li>
+            <li>
+            <div class="dropdown show">
+              <%= link_to user_path(current_user.id), class: "btn btn-secondary dropdown-toggle",id: "dropdownMenuLink", data: {toggle: 'dropdown'},aria: {haspopup: true}, aria:{expanded: false} do %>
+                <%= current_user.name %><span class="caret"></span>
+              <% end %>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><%= link_to '編集', edit_user_registration_path, class: 'dropdown-item'%></li>
                 <li>
-                <%= link_to current_user.name, :controller => "users", :action => "mypage" %>
+                <%= link_to 'ログアウト', destroy_user_session_path, method: :get, class: 'dropdown-item' %>
                 </li>
-                <li>
-                <%= link_to 'プロフィール変更', edit_user_registration_path %>
-                </li>
-                <li>
-                <%= link_to 'ログアウト', destroy_user_session_path, method: :get %>
-                </li>
-                <% else %>
-                <li>
-                    <%= link_to 'サインアップ', new_user_registration_path %>
-                </li>
-                <li>
-                    <%= link_to 'ログイン', new_user_session_path %>
-                </li>
-                <% end %>
+              </ul>
+            </div>
+            </li>
+            <% else %>
+            <li>
+                <%= link_to 'サインアップ', new_user_registration_path %>
+            </li>
+            <li>
+                <%= link_to 'ログイン', new_user_session_path %>
+            </li>
+            <% end %>
             </ul>
         </div>
     </div>
-</nav>
+</nav> -->
 </header>
-
-
-
-<!-- <header>
-<div class="navbar">
-    <div class="brand">a</div>
-    <div>
-        <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
-    </div>
-</div>
-</header> -->

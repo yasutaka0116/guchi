@@ -1,3 +1,36 @@
+<main>
+  <div class="l-mypage-area">
+    <div class="mypage-container">
+      <div class="l-maypage-user">
+        <div class="l-mypage-avatar">
+            <%= image_tag current_user.image ,style: "width: 140px; height: 140px;" %>
+        </div>
+        <div class="l-mypage-me">
+        <div class="m-box-name"><h2 class="name"><%= current_user.name %></h2></div>
+          <div class="m-box-message"><p><%= current_user.introduction%></p></div>
+        </div>
+      </div>
+      <div class="l-mypage-record">
+      <p>愚痴を聞いた回数 <span><%=@lithen.count %></span></p>
+        <p>愚痴言った回数 <span><%=@grumbl.count %></span></p>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="wrap">
   <div class="mypage">
     <div class="mypage-body">

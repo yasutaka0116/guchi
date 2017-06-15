@@ -1,0 +1,35 @@
+<% provide(:title, "#{@user.name}さんとのトーク") %>
+<main>
+  <div id="userid" style="display: none;"><%= current_user.id%></div>
+  <div class="l-talk-area">
+    <div class="l-talk-container">
+      <div class="l-talk-one">
+        <div class="l-talk-avatar"><%= image_tag(@user.image, size: "50x50", alt: "no image") %></div>
+        <div class="l-talk-name"><%= @user.name %></div>
+      </div>
+      <div class="l-talk-session" id="chat_message">
+      <% @talks.each do |talk| %>
+        <% if talk.send_user_id == current_user.id %>
+          <div class="l-talk-me">
+            <p class="brkword"><%= talk.message %></p>
+          </div>
+        <% else %>
+          <div class="l-talk-you">
+            <p class="brkword"><%= talk.message %></p>
+          </div>
+        <% end %>
+      <% end %>
+      </div>
+      <div class="l-talk-text">
+        <input type="text" data-behavior="room_speaker" size="40" style="display: inline-block;">
+        <button type="button" name="textbtn" id="textbtn" class="inline">
+          <%= fa_icon "paper-plane" %>
+        </button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  $("#chat_message").scrollTop($("#chat_message")[0].scrollHeight);
+</script>

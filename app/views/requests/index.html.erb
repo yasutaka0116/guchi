@@ -1,19 +1,46 @@
-<!-- <div class="container-fluid"> -->
-  <div class="wrap">
-    <div class="top-icon">
-      <ul class="list-inline">
-        <li>a</li>
-        <li class="active" id="js-active">
-          <%= link_to "聞いてくれる", requests_lithen_path, remote: true %>
+<% provide(:title, "登録された募集") %>
+<main>
+  <p class="inlinecenter" style="margin-bottom: 50px;">グチを通じて人と会いましょう！</p>
+  <p class="l-regist-btn">
+  <%= link_to "募集しましょう！", new_request_path, class: "l-regist-link" %>
+  </p>
+  <div class="l-tab-area">
+    <div class="tab-container">
+      <ul class="m-navlist">
+        <li id="js-active" class="m-navlist-li current">
+          <p class="m-navlist-tab">
+              <%= link_to "すべて", root_path, class: "m-navlist-link" %>
+          </p>
         </li>
-        <li id="js-active">
-          <%= link_to "愚痴りたい人", requests_grumbl_path, remote: true  %>
+        <li id="js-active" class="m-navlist-li">
+          <p class="m-navlist-tab">
+          <%= link_to "聞いてくれる人", requests_lithen_path, class: "m-navlist-link" %>
+          </p>
         </li>
-        <li>
-          <%= link_to "登録", new_request_path %>
+        <li id="js-active" class="m-navlist-li">
+          <p class="m-navlist-tab">
+              <%= link_to "ぐちりたい人", requests_grumbl_path, class: "m-navlist-link" %>
+          </p>
         </li>
-    </div>
-    <div class="container" id= "request">
-      <%= render partial: 'requests/request', collection: @requests %>
+        <li id="js-active" class="m-navlist-li">
+          <p class="m-navlist-tab">
+          <%= link_to "これから開催", requests_today_path, class: "m-navlist-link" %>
+          </p>
+        </li>
+        <!-- <li id="js-active" class="m-navlist-li">
+          <p class="m-navlist-tab">
+          <%= link_to "募集", new_request_path, class: "m-navlist-link" %>
+          </p>
+        </li> -->
+      </ul>
     </div>
   </div>
+  <div class="l-main-area" id="request">
+    <div class="main-container">
+      <%= render partial: 'requests/request', collection: @requests %>
+    </div>
+    <div class="m-pagination">
+    <%= paginate @requests %>
+    </div>
+  </div>
+</main>

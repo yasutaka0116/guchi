@@ -1,22 +1,32 @@
-<div class="wrap">
-  <div class="container">
-  <p>あなた宛てのリクエスト</p>
-  <% @accepts.each do |accept| %>
-  <div class="acceptsbox">
-    <div class="request">
-      <%= accept.request.date %> &nbsp;&nbsp;&nbsp;<%= accept.request.starttime %>～<%= accept.request.endtime %>にリクエストがありました
-    </div>
-    <div class="request-box">
-      <div class="request-user_avatar">
-        <%= image_tag(accept.user.image, size: "50x50", alt: "no image") %>
-      </div>
-      <div class="request-user_name"><%= accept.user.name %></div>
-      <div class="request-user_message"><%= accept.message %></div>
-      <div class="request-submit">
-        <%= link_to "承認", accept_path(accept.id), method: :patch %>
-      </div>
+<% provide(:title, 'リクエスト一覧') %>
+<main>
+  <div class="l-accept-area">
+    <div class="accept-continer">
+      <h2 class="marginb weight">あなた宛てのリクエスト</h2>
+      <% @accepts.each do |accept| %>
+        <div class="m-box">
+          <div class="box-container">
+            <div class="l-accept-day">
+              <span class="m-day"><%= accept.request.date %></span>
+              <span class="m-time"><%= accept.request.starttime %>:00～<%= accept.request.endtime %>:00にリクエスト</span>
+            </div>
+            <div class="l-accept-user">
+              <div class="l-accept-avatar">
+                <%= image_tag(accept.user.image, size: "70x70", alt: "no image") %>
+              </div>
+              <div class="l-accept-you">
+                <div class="m-box-name"><h2 class="name"><%= accept.user.name %>さん</h2></div>
+                <div class="l-accept-message"><p><%= accept.message %></p></div>
+              </div>
+              <div class="l-accept-send">
+                <div class="btn green">
+                  <%= link_to "承認", accept_path(accept.id), method: :patch, class: "blink" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
-  <% end %>
-  </div>
-</div>
+</main>

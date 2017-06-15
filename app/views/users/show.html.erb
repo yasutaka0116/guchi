@@ -1,0 +1,77 @@
+<% provide(:title, "#{@user.name}") %>
+<main>
+  <div class="l-mypage-area">
+    <div class="mypage-container">
+      <div class="l-mypage-user">
+        <div class="l-mypage-avatar">
+            <%= image_tag @user.image ,style: "width: 140px; height: 140px;" %>
+        </div>
+        <div class="l-mypage-me">
+          <div class="m-box-name"><h2 class="name"><%= @user.name %></h2></div>
+          <div class="m-box-detail">
+            <span>年齢 <%= @user.age %></span>
+            <span>性別 <%= @user.gender %></span>
+          </div>
+          <div class="m-box-message"><p><%= @user.introduction%></p></div>
+        </div>
+      </div>
+      <div class="l-mypage-record">
+      <p>愚痴を聞いた回数 <span><%=@lithen.count %></span></p>
+        <p>愚痴言った回数 <span><%=@grumbl.count %></span></p>
+      </div>
+    </div>
+    <% if @requests.present? %>
+    <div class="l-user-request">
+    <h2 class="weight">リクエスト一覧</h2>
+    <% @requests.each do |request| %>
+    <% if request.role == 1 %>
+      <div class="m-box border-red">
+    <% else %>
+      <div class="m-box border-blue">
+    <% end  %>
+      <div class="box-container">
+        <div class="l-box-day">
+          <div class="m-box-date"><%= request.date %></div>
+          <div class="m-box-time"><%= request.starttime %>:00～<%= request.endtime %>:00</div>
+          <% if request.accepts.exists?(flag: 1) %>
+            <div class="btn">
+              <%= link_to "成立", request_path(request.id) ,class: "blink orange", data: {"turbolinks" => false} %>
+            </div>
+          <% elsif request.date < Date.today %>
+            <div class="btn">
+              <%= link_to "終了", request_path(request.id) ,class: "blink gray", data: {"turbolinks" => false} %>
+            </div>
+          <% elsif request.accepts.present? %>
+            <div class="btn">
+              <%= link_to request.role == 1 ? "聞きにいく#{request.accepts.count}件" : "グチる #{request.accepts.count}件", request_path(request.id) ,class: "blink green", data: {"turbolinks" => false} %>
+            </div>
+          <% else %>
+           <div class="btn">
+              <%= link_to request.role == 1 ? "聞きにいく" : "グチる", request_path(request.id) ,class: "blink green", data: {"turbolinks" => false} %>
+            </div>
+          <% end %>
+        </div>
+        <div class="l-box-avatar">
+          <div class="m-box-avatar">
+            <%= link_to user_path(request.user_id) do %>
+              <%= image_tag(request.user.image, :class=>"img-circle", :alt => "no image", :size => "140x140") %>
+            <%end%>
+          </div>
+        </div>
+        <div class="l-box-user">
+          <div class="m-box-name">
+            <%= link_to user_path(request.user_id) do %>
+              <%= request.user.name %>
+            <%end%>
+          </div>
+          <div class="m-box-state"><%= request.state %></div>
+          <div class="m-box-address"><%= request.address %></div>
+          <div class="m-box-message"><p><%= request.message %></p></div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+    </div>
+    <% end %>
+  </div>
+</main>

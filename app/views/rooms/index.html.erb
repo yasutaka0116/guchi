@@ -1,0 +1,39 @@
+<% provide(:title, "トーク一覧") %>
+<main>
+  <h2 class="weight marginb">トーク一覧</h2>
+  <% if @rooms.blank? %>
+  <p>まだトークがありません</p>
+  <% else %>
+  <div class="l-room-area">
+    <div class="room-container">
+      <ul class="l-room-box">
+       <% @rooms.each do |room| %>
+          <%= link_to talks_show_path(room.id),  data: {"turbolinks" => false} do%>
+            <li class="l-room-you">
+              <div class="l-room-avatar">
+                <%= room.user_two.id == current_user.id ?
+                   image_tag(room.user_one.image, size: "70x70", alt: "no image")  :  image_tag(room.user_two.image, size: "70x70", alt: "no image") %>
+              </div>
+              <div class="l-room-text">
+                <div class="l-room-name">
+                  <%= room.user_two.id == current_user.id ? room.user_one.name : room.user_two.name %>
+                </div>
+                <div class="l-room-message">
+                  <% unless room.talks.empty? %>
+                    <%= room.talks.last.message %>
+                  <% end%>
+                </div>
+              </div>
+              <div class="l-room-day">
+                <% unless room.talks.empty? %>
+                  <%= simple_time(room.talks.last.created_at) %>
+                <% end %>
+              </div>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <% end %>
+</main>

@@ -1,0 +1,640 @@
+.l-regist-btn{
+ text-align: center;
+ font-size: 1.5em;
+ width:960px;
+ margin:0 auto;
+}
+
+.l-regist-link{
+  padding: 12px 300px;
+  text-decoration: none;
+  background: #299a0b;
+  color: #ffffff;
+  border-radius: 1000px;
+}
+
+
+
+.l-nav-area{
+  width:100%;
+  height:100px;
+  background-color: white;
+}
+
+.l-nav-bar{
+  width:100%;
+  height:20px;
+  background-color: #4C443B;
+}
+
+.nav-container{
+  width: 960px;
+  margin:0 auto;
+  // overflow: hidden;
+  line-height:3;
+  padding:10px 0;
+}
+
+.l-nav-left{
+  float:left;
+}
+
+.l-nav-right{
+  float:right;
+}
+
+.l-nav-link {
+  float:left;
+  margin-left:15px;
+  text-align: center;
+}
+
+.l-nav-user{
+  position: relative;
+}
+.l-nav-submenu{
+  background-color: white;
+  top:40px;
+  left:-30px;
+  width:150px;
+  position: absolute;
+  display: none;
+}
+
+.l-nav-submenu li{
+  text-align: center;
+}
+
+
+
+
+.l-nave-area{
+  margin-top:100px;
+  text-align: center;
+}
+
+.l-tab-area{
+  margin-top: 50px;
+}
+
+.l-main-area{
+  width: 960px;
+  margin:0 auto;
+}
+
+.main-container{
+  // margin-top:150px;
+}
+
+
+.box-container{
+  padding:15px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/********************************ユーザー*****************************************/
+
+.l-user-area{
+  width:960px;
+  margin:0 auto;
+}
+
+.user-container{
+  padding:20px;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: #fff;
+  box-shadow:0 3px 5px 0 rgba(0,0,0,0.2);
+}
+
+.l-user-field{
+  width: 500px;
+  margin:0 auto;
+}
+
+.l-user-request{
+  margin-top:100px;
+}
+
+
+
+/****************************投稿詳細***************************************/
+
+.l-detail-area{
+  width:960px;
+  margin:0 auto;
+}
+
+.detail-container{
+  // margin-top: 150px;
+  padding:20px;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: #fff;
+  box-shadow:0 3px 5px 0 rgba(0,0,0,0.2);
+}
+
+.l-detail-day{
+  margin:20px;
+  height:300px;
+  padding:20px 40px;
+  // background:green;
+}
+
+.l-detail-show{
+  float:left;
+}
+
+.l-detail-map{
+  float:right;
+}
+
+.l-detail-person{
+  margin:0 30px;
+  height:500px;
+  // background: red;
+  padding:20px;
+  overflow:hidden;
+}
+
+.l-detail-me{
+  float:left;
+  // height:300px;
+  width:410px;
+  // background:yellow;
+  padding: 30px;
+}
+
+.l-detail-you{
+  // height:300px;
+  width:410px;
+  // background:green;
+  float:right;
+}
+
+.l-detail-btn{
+  padding:50px 150px;
+}
+
+.l-detail-list{
+  height:300px;
+  // background: red;
+  padding:30px;
+}
+
+
+/******************************マイページ****************************************/
+
+.l-mypage-area{
+  width:960px;
+  margin:0 auto;
+}
+
+.mypage-container{
+  padding:20px;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: #fff;
+  box-shadow:0 3px 5px 0 rgba(0,0,0,0.2);
+}
+
+.l-mypage-user{
+  width:70%;
+  height:300px;
+  float:left;
+  overflow: hidden;
+}
+
+
+.l-mypage-avatar{
+  width:170px;
+  height:100%;
+  float:left;
+}
+
+.l-mypage-me{
+  height:100%;
+  margin-left:170px;
+  // margin-left:170px;
+}
+
+.l-mypage-record{
+  width:30%;
+  padding:20px;
+  background: gray;
+  float:right;
+}
+
+
+/*********************リクエスト一覧********************************************/
+.l-accept-area{
+  width:960px;
+  margin:0 auto;
+}
+
+.accept-continer{
+  padding:20px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+
+.l-accept-day{
+  // height:100px;
+  // background:blue;
+}
+
+.l-accept-user{
+  // background:green;
+}
+
+.l-accept-avatar{
+  float:left;
+}
+
+.l-accept-you{
+  width:530px;
+  float:left;
+  margin:0 160px 0 50px;
+}
+
+.l-accept-send{
+  margin-left:800px;
+}
+
+
+/*申請*/
+
+
+.l-register-area{
+   width:960px;
+  margin:0 auto;
+}
+
+.regsiter-container{
+  padding:20px;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: #fff;
+  box-shadow:0 3px 5px 0 rgba(0,0,0,0.2);
+}
+
+.l-register-box{
+  width:500px;
+  margin:0 auto;
+}
+
+.l-register-state{
+  margin-bottom: 20px;
+}
+
+
+/**********************ルーム*****************************************************/
+
+.l-room-area{
+   width:760px;
+   height:500px;
+   margin:0 auto;
+   overflow: scroll;
+   resize:none;
+  box-sizing: border-box;
+  background: #fff;
+  box-shadow:0 3px 5px 0 rgba(0,0,0,0.2);
+}
+
+.l-room-area::-webkit-scrollbar{
+  width:5px;
+}
+.l-room-area::-webkit-scrollbar-thumb{background:gray;}
+
+
+.room-container{
+    // padding:20px;
+  // overflow: hidden;
+  // box-sizing: border-box;
+  // background: #fff;
+  // box-shadow:0 3px 5px 0 rgba(0,0,0,0.2);
+}
+
+.l-room-box{
+  width:100%;
+  height:100%;
+   // overflow: scroll;
+  // overflow: hidden;
+}
+
+
+.l-room-you{
+  padding:10px;
+  height:100px;
+}
+
+.l-room-avatar{
+  float:left;
+}
+
+.l-room-text{
+  float: left;margin-left:50px;
+  width:300px;
+  overflow: hidden;
+}
+
+.l-room-name{
+  margin-bottom: 10px;
+}
+
+.l-room-message{
+   overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.l-room-day{
+  margin-left:600px;
+  margin-top:30px;
+}
+
+
+/*************************トーク一覧************************************************/
+
+.l-talk-area{
+  width:760px;
+  // height:500px;
+  margin:0 auto;
+  box-sizing: border-box;
+  background: #fff;
+  box-shadow:0 3px 5px 0 rgba(0,0,0,0.2);
+}
+
+.l-talk-session::-webkit-scrollbar{width: 5px;}
+
+.l-talk-session::-webkit-scrollbar-thumb{background:gray;}
+
+.talk-container{
+}
+
+.l-talk-one{
+  padding:10px;
+  height:60px;
+  background:rgba(0, 0, 0, 0.075);
+}
+
+.l-talk-avatar{
+  float:left;
+}
+
+.l-talk-name{
+  margin-left:50px;
+}
+
+.l-talk-session{
+  height:400px;
+  width: 100%;
+  padding:10px;
+  overflow: scroll;
+}
+
+
+
+.l-talk-you {
+    position: relative;
+    background: #fff;
+    border: 1px solid #777;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 15px;
+    margin-right: 20%;
+    clear: both;
+    max-width: 500px;
+    float: left;
+}
+
+.l-talk-you:after,
+.l-talk-you:before {
+    right: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.l-talk-you:after {
+    border-color: rgba(255, 255, 255, 0);
+    border-right-color: #fff;
+    border-width: 7px;
+    margin-top: -7px;
+}
+
+.l-talk-you:before {
+    border-color: rgba(0, 0, 0, 0);
+    border-right-color: #000;
+    border-width: 8px;
+    margin-top: -8px;
+}
+
+
+
+.l-talk-me {
+    position: relative;
+    background: #85e249;
+    border: 1px solid #777;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 15px;
+    margin-left: 20%;
+    clear: both;
+    max-width: 500px;
+    float: right;
+}
+
+.l-talk-me:after,
+.l-talk-me:before {
+    left: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.l-talk-me:after {
+    border-color: rgba(133, 226, 73, 0);
+    border-left-color: #85e249;
+    border-width: 7px;
+    margin-top: -7px;
+}
+
+.l-talk-me:before {
+    border-color: rgba(119, 119, 119, 0);
+    border-left-color: #777;
+    border-width: 8px;
+    margin-top: -8px;
+}
+
+
+.l-talk-text{
+  height:50px;
+  background: rgba(0, 0, 0, 0.075);
+}
+
+
+
+@media screen and ( max-width:480px)
+{
+  header{widows: 100%;}
+  .nav-container{width:100%;}
+  body{
+    width:100%;
+  }
+  main{width:100%;
+        padding: 0 15px;
+        box-sizing: border-box;
+  }
+  textarea{
+    width:100%;
+  }
+  .box-container{
+    padding:10px;
+  }
+  .l-regist-btn{
+    width:100%;
+  }
+  .l-regist-link{
+    padding:5px ;
+  }
+  .l-main-area{
+    width:100%;
+  }
+  .l-user-area{
+    width:100%;
+  }
+  .l-user-field{
+    width:100%;
+  }
+  .l-register-area{
+    width:100%;
+  }
+  .l-register-box{
+    width:100%;
+  }
+  .l-register-state input[type="submit"]{
+    width:100%;
+  }
+  .l-room-area{
+    width:100%;
+  }
+  .l-room-avatar{
+    width: 30%;
+  }
+  .l-room-avatar img{
+    width: 70%;
+    height: 70%;
+  }
+  .l-room-text{
+    float:none;
+    margin-left: 30%;
+    width:70%;
+  }
+  .l-room-day{
+    display: none;
+  }
+  .l-talk-area{
+    width:100%;
+  }
+  .l-talk-you{
+    max-width:70%;
+  }
+  .l-talk-me{
+    max-width: 70%;
+  }
+  .l-talk-text input[type="text"]{
+    width:80%;
+  }
+  .l-accept-area{
+    width:100%;
+  }
+  .l-mypage-area{
+    width:100%;
+  }
+  .l-mypage-user{
+    width:100%;
+    height:100%;
+    float:none;
+  }
+  .l-mypage-avatar{
+    float:none;
+    width:100%;
+    text-align: center;
+  }
+  .l-mypage-avatar img{
+    width:50%;
+    height:50%;
+  }
+  .l-mypage-me{
+    margin-left: 0;
+  }
+  .l-mypage-record{
+    float:none;
+    width:100%;
+    text-align: center;
+  }
+  .l-detail-area{
+    width:100%;
+  }
+  .l-detail-day{
+    margin:0;
+    padding:0;
+    height:100%;
+  }
+  .l-detail-person{
+    margin:0;
+    padding:0;
+    height:100%;
+  }
+  .l-detail-show{
+    float:none;
+  }
+  .l-detail-map{
+    float: none;
+  }
+  .l-detail-me{
+    float:none;
+    padding:0;
+    width:100%;
+  }
+  .l-detail-you{
+    width:100%;
+    float:none;
+  }
+  .l-detail-btn{
+    padding:50px 0;
+    text-align: center;
+  }
+  .l-detail-list{
+    text-align: center;
+    height: 100%;
+  }
+  .l-nav-link{
+    margin:0;
+    margin-right:5px;
+  }
+  .nav-container .weight{
+    font-size:14px;
+  }
+  .l-footer-container a {
+    font-size:14px;
+  }
+  .l-footer-container .marginb {
+    margin-bottom: 10px;
+  }
+  .l-footer-container .weight{
+    font-size:14px;
+  }
+
+}

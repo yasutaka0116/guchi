@@ -1,8 +1,24 @@
 class RequestsController < ApplicationController
-   before_action :authenticate_user!, only:[:index]
-
+   before_action :authenticate_user!, only:[:new]
   def index
-    @requests = Request.all.includes(:user)
+    @requests = Request.order('created_at DESC').page(params[:page])
+  end
+
+  def lithen
+    @requests = Request.where(role: 0).order('created_at DESC').includes(:user).page(params[:page])
+    render :index
+  end
+
+  def grumbl
+     @requests = Request.where(role: 1).order('created_at DESC').includes(:user).page(params[:page])
+    render :index
+  end
+
+  def today
+    today = Date.today
+    to = today+1.year
+    @requests = Request.where(date: today...to).order('date ASC').page(params[:page])
+    render :index
   end
 
   def new
@@ -11,14 +27,18 @@ class RequestsController < ApplicationController
 
   def create
     @request = Request.new(create_params)
-    @request.save
-    flash[:notice]= "リクエストテーブルをつくりました！"
-    redirect_to :root
+    if @request.save
+      flash[:success]= "リクエストテーブルをつくりました！"
+      redirect_to :root
+    else
+      render :new
+    end
   end
 
   def show
     @request=Request.find(params[:id])
     @accept = Accept.new
+    @accepts = Accept.where(request_id: params[:id])
   end
 
    private

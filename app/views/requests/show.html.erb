@@ -1,32 +1,103 @@
-<div class="wrap">
-  <div class="detail">
-    <div class="detail-body">
-      <div class="float">
-        <div class="detail-avatar">
-          <div class="avatar-center">
-            <!-- <img src="assets/images.jpg" alt="no image" class="img-circle"  width="140px" height="140px"> -->
+<% provide(:title, "募集詳細") %>
+<main>
+<div class="l-detail-area">
+  <div class="detail-container">
+    <div id="address" style="display:none;" data-address="<%= @request.address %>"></div>
+    <div class="l-detail-day">
+      <div class="l-detail-show">
+        <div class="m-day"><%= @request.date %></div>
+        <div class="m-time"><%= @request.starttime %>～<%= @request.endtime %></div>
+        <div class="m-state"><%= @request.state %></div>
+        <div class="m-address" ><%= @request.address %></div>
+      </div>
+       <div class="l-detail-map">
+        <div id="map-canvas">ここに地図が表示されます</div>
+      </div>
+    </div>
+    <div class="l-detail-person">
+      <div class="l-detail-me">
+        <div class="m-avatar">
             <%= image_tag(@request.user.image, :class=>"img-circle", :alt => "no image", :size => "140x140") %>
+        </div>
+        <div class="m-name"><%= @request.user.name %></div>
+        <div class="m-introduction">
+        <p>プロフィール</p>
+          <%= @request.user.introduction %>
+        </div>
+        <div class="m-message">
+        <p>一言メッセージ</p>
+        <%= @request.message %></div>
+      </div>
+      <div class="l-detail-you">
+        <div class="l-detail-btn">
+          <% if Date.today > @request.date %>
+            <% if @accepts.exists?(flag: 1) %>
+              <div class="btn">
+                  <div class="blink orange" id="js-btn-link">成立しました</div>
+                </div>
+              </div>
+            <% end %>
+            <div class="btn">
+              <div class="blink gray" id="js-btn-link">終了</div>
+            </div>
           </div>
+          <% else %>
+            <% if user_signed_in? %>
+              <div class="btn">
+                <% if @accepts.exists?(flag: 1)%>
+                  <div class="blink orange">成立しました。</div>
+                <%elsif @request.user_id === current_user.id %>
+                  <div class="blink green">自分の投稿です。</div>
+                <%elsif @accepts.exists?(user_id: current_user.id) %>
+                  <div class="blink green">すでに投稿してます</div>
+                <% else %>
+                  <div class="blink green" id="js-btn-link">リクエスト</div>
+                <% end%>
+              </div>
+            </div>
+              <div class="m-message" id="js-message" style="display:none;">
+                <%=  form_for @accept do |f|%>
+                  <%= f.label :message, "リクエスト" %>
+                  <%= f.text_area :message, size: "130x4" %>
+                  <%= f.hidden_field :user_id, value: current_user.id %>
+                  <%= f.hidden_field :request_id, value: @request.id %>
+                  <%= f.hidden_field :flag, value: 0 %>
+                  <div class="btn width center">
+                    <div class="btn-link" id="js-btn-link">
+                      <%= f.submit %>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            <% else %>
+              <div class="btn">
+                <% if @accepts.exists?(flag: 1)%>
+                  <div class="blink orange">成立しました。</div>
+                <% else %>
+                  <div class="blink green">
+                    <%= link_to 'ログインしてください', new_user_session_path %>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+          <% end %>
         </div>
-        <div class="meeting-date">
-          <P><%= @request.date %></P>
-          <p><%= @request.state %></p>
-          <p><%= @request.address %></p>
-        </div>
-      </div>
-      <div class="meeting-message">
-        <p><%= @request.accepts.count %></p>
-      </div>
-      <div class="meeting-request">
-        <%=  form_for @accept do |f|%>
-          <%= f.label :message, "リクエスト" %>
-          <%= f.text_area :message, size: "250x4" %>
-          <%= f.hidden_field :user_id, value: current_user.id %>
-          <%= f.hidden_field :request_id, value: @request.id %>
-          <%= f.hidden_field :flag, value: 0 %>
-        <%= f.submit %>
+        <% if !(@accepts.nil?) %>
+          <div class="l-detail-list">
+            <p>リクエスト件数 <%= @accepts.count %></p>
+       <!--      <% @accepts.each do |accept| %>
+              <div class="m-box">
+                <div class="box-container">
+                  <p><%= accept.user.name %></p>
+                  <p></p>
+                </div>
+              </div>
+            <% end %> -->
+          </div>
         <% end %>
       </div>
     </div>
   </div>
 </div>
+</main>
+<!-- <script src="assets/javascripts/common.js"></script> -->

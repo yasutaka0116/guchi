@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Guchi</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
+  <title><%= full_title(yield(:title)) %></title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyBQRJdr7ZJQTD5coxJQ9KMsWbP4wdiqu9I&lang=ja"></script>
 </head>
 <body>
 
 <%= render "layouts/header" %>
- <p class="notice"><%= notice %></p>
- <p class="alert"><%= alert %></p>
 
+<% flash.each do |type, msg| %>
+ <div class="alert alert-<%=type%>"><%= msg %></div>
+<% end %>
 <%= yield %>
 
 <%= render "layouts/footer" %>

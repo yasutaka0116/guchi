@@ -1,0 +1,310 @@
+/*top-nav*/
+
+.tab-container{
+  width:960px;
+  margin:0 auto;
+  box-sizing: border-box;
+  background: #fff;
+  // border-bottom: 1px solid #dedede;
+  // box-shadow:0 3px 5px 0 rgba(0,0,0,0.2);
+}
+.m-navlist{
+  display: flex;
+  justify-content: space-around;
+}
+
+.m-navlist-li{
+  display: block;
+  width:100%;
+  padding:20px;
+  border-bottom: 5px solid #dedede;
+}
+.m-navlist-tab{
+  text-align: center;
+  font-size:1em;
+}
+
+// ..m-navlist-tab:hover{
+
+// }  
+
+.m-navlist-link{
+  // padding: 5px 14px;
+  // background: #337ab7;
+  // color:white;
+  // border-radius: 10000px;
+}
+
+.m-navlist-li a:active{
+  // background: #337ab7;
+  border-color:#666;
+}
+
+.m-navlist-li a:hover{
+  border-color:#666;
+}
+/*top-nav*/
+
+
+//投稿一覧の枠・ルクエストリスト枠
+
+.m-box{
+  // background: -webkit-linear-gradient(top, #fff 0%, #f0f0f0 100%);
+  // background: linear-gradient(to bottom, #fff 0%, #f0f0f0 100%);
+  border: 1px solid #ccc;
+  background-color: white;
+  margin-bottom: 7px;
+}
+
+.l-box-day{
+  float: left;
+}
+
+
+.m-box-date{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.m-box-time{
+  font-size: 20px;
+  font-weight: 100;
+  margin:15px 0 30px 0;
+}
+
+.l-box-avatar{
+  float: left;
+  margin-left:50px;
+}
+
+.l-box-user{
+  float:left;
+  margin-left:50px;
+  width:500px;
+}
+
+.m-box-name{
+  margin-bottom: 5px;
+}
+
+.m-box-state{
+  margin-bottom:10px;
+}
+
+.m-box-address{
+  margin-bottom:15px;
+  font-weight: bold;
+}
+
+.m-box-detail{
+  margin-bottom: 50px;
+}
+
+
+.m-box-message{
+  // background: #eee;
+  // background: linear-gradient(to bottom, #fff 0%, #f0f0f0 100%);
+  background-color: white;
+  box-shadow: 0 -1px 0 rgba(255, 255, 255, 1) inset;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  width: 100%;
+  border:none;
+  p{
+    font-size:14px;
+    height:14*1.3*3px;
+    line-height: 1.3;
+    position:relative;
+    &:before,
+    &:after{
+      // background: #eee;
+      // background: linear-gradient(to bottom, #fff 0%, #f0f0f0 100%);
+      background-color: white;
+      box-shadow: 0 -1px 0 rgba(255, 255, 255, 1) inset;
+      position: absolute;
+    }
+    &:before {
+      content: "...";
+      top: 14*1.3*2px;
+      right: 0;
+    }
+    &:after {
+      content: "";
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+/**********詳細の所**************/
+.m-day{
+  font-size:24px;
+  font-weight:100;
+  margin-left:5px;
+}
+
+.m-time{
+  font-size:24px;
+  font-weight:100;
+}
+
+.m-state{
+  margin-top:5px;
+  font-size:18px;
+  font-weight:bold;
+}
+
+.m-address{
+  margin-top:5px;
+  font-size:14px;
+}
+
+.m-avatar{
+  padding:0 100px;
+}
+
+.m-name{
+  padding:0 100px;
+  text-align:center;
+}
+
+.m-introduction p{
+  font-weight: bold;
+  line-height: 2.0;
+}
+
+.m-message p{
+  font-weight: bold;
+  line-height: 2.0;
+}
+
+
+
+
+
+/*module*/
+.btn{
+  text-align: center;
+  font-size:1em;
+}
+
+.blink{
+  padding: 2px 6px;
+  // background: #337ab7;
+  color:white;
+  // border-radius: 10000px;
+}
+
+/*module*/
+
+.delete{
+  position: relative;
+  left: 500px;
+}
+@media screen and ( max-width:480px)
+{
+ .tab-container{
+    width:100%;
+  }
+  .m-navlist-li{
+    padding:10px;
+  }
+  .m-navlist-tab{
+    font-size: 0.7em;
+  }
+  .l-box-avatar{
+    margin:0;
+    float:none;
+    width:50%;
+    margin:0 auto;
+  }
+
+  .l-box-avatar img{
+     // $size: width:100%;
+     width:100%;
+     height:100%;
+  }
+  .l-box-user{
+    float:none;
+    margin:0;
+    width: 100%;
+  }
+  .m-box-name{
+    width:50%;
+    margin:0 auto;
+    text-align: center;
+  }
+  .m-box-state{
+    text-align: center;
+  }
+  .m-box-address{
+    text-align: center;
+  }
+  .m-box-time{
+    margin:15px 0 15px 0;
+  }
+  .l-box-day{
+    width: 100%;
+  }
+  .m-box-detail{
+    margin: 0 auto 20px;
+    width: 50%;
+    text-align: center;
+  }
+  .l-box-day .btn{
+    position: relative;
+    left: 52%;
+    bottom:60px;
+  }
+  .m-pagination{
+    width:100%;
+  }
+  .m-day{
+    margin-left:0;
+  }
+  .m-time{
+    display: block;
+    font-size: 20px;
+  }
+  .m-avatar{
+    padding: 0;
+    width: 100%;
+    text-align: center;
+  }
+  .m-avatar img{
+    width: 50%;
+    height: 50%;
+  }
+  .m-introduction p{
+    text-align: center;
+  }
+  .m-message p{
+    text-align: center;
+  }
+  .accept-continer{
+    width:100%;
+    padding:0;
+  }
+  .l-accept-you{
+    width:100%;
+    margin:0;
+  }
+  .l-accept-avatar{
+    float:none;
+    text-align: center;
+  }
+  .l-accept-avatar img{
+    width:50%;
+    height:50%;
+  }
+  .l-accept-send{
+    margin-left:0;
+  }
+  .l-accept-send .btn{
+    width:100%;
+    margin-top:5px;
+  }
+  .m-box-name .name{
+    font-size:20px;
+  }
+}

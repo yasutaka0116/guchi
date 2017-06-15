@@ -1,23 +1,46 @@
-  <div class = "box col-md-4" >
-    <div class="avatar">
-      <div class="avatar-center">
-        <!-- <img src="assets/images.jpg" alt="no image" class="img-circle"  width="140px" height="140px"> -->
-        <%= image_tag(request.user.image, :class=>"img-circle", :alt => "no image", :size => "140x140") %>
+<% if request.role == 1 %>
+<div class="m-box border-red">
+<% else %>
+<div class="m-box border-blue">
+<% end  %>
+  <div class="box-container">
+    <div class="l-box-day">
+      <div class="m-box-date"><%= request.date %></div>
+      <div class="m-box-time"><%= request.starttime %>:00～<%= request.endtime %>:00</div>
+      <% if request.accepts.exists?(flag: 1) %>
+        <div class="btn">
+          <%= link_to "成立", request_path(request.id) ,class: "blink orange", data: {"turbolinks" => false} %>
+        </div>
+      <% elsif request.date < Date.today %>
+        <div class="btn">
+          <%= link_to "終了", request_path(request.id) ,class: "blink gray", data: {"turbolinks" => false} %>
+        </div>
+      <% elsif request.accepts.present? %>
+        <div class="btn">
+          <%= link_to request.role == 1 ? "聞きにいく#{request.accepts.count}件" : "グチる #{request.accepts.count}件", request_path(request.id) ,class: "blink green", data: {"turbolinks" => false} %>
+        </div>
+      <% else %>
+       <div class="btn">
+          <%= link_to request.role == 1 ? "聞きにいく" : "グチる", request_path(request.id) ,class: "blink green", data: {"turbolinks" => false} %>
+        </div>
+      <% end %>
+    </div>
+    <div class="l-box-avatar">
+      <div class="m-box-avatar">
+        <%= link_to user_path(request.user_id) do %>
+          <%= image_tag(request.user.image, :class=>"img-circle", :alt => "no image", :size => "140x140") %>
+        <%end%>
       </div>
     </div>
-    <p class="user-name"><%= request.user.name %> </p>
-    <div class="which">
-      <div class="which-side">
-        <div class="coast"><%= request.date %></div>
+    <div class="l-box-user">
+      <div class="m-box-name">
+        <%= link_to user_path(request.user_id) do %>
+          <%= request.user.name %>
+        <%end%>
       </div>
-      <p><%= request.message %></p>
-    </div>
-    <div class="state">
-      <p class="text-center"><%= request.state %></p>
-      <p class="text-center"><%= request.starttime %>～<%= request.endtime %></p>
-      <p class="text-center"><%= request.address %></p>
-    </div>
-    <div class="btn">
-      <%= link_to "愚痴る", request_path(request.id) %>
+      <div class="m-box-state"><%= request.state %></div>
+      <div class="m-box-address"><%= request.address %></div>
+      <div class="m-box-message"><p><%= request.message %></p></div>
     </div>
   </div>
+</div>

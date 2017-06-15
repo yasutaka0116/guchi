@@ -1,0 +1,39 @@
+<!-- <div class="container-fluid"> -->
+<main>
+  <div class="l-tab-area">
+    <div class="tab-container">
+      <ul class="m-navlist">
+        <li id="js-active">
+          <p class="m-navlist-tab">
+              <%= link_to "新着", root_path, class: "m-navlist-link"  %>
+          </p>
+        </li>
+        <li id="js-active">
+          <p class="m-navlist-tab">
+          <%= link_to "聞いてくれる", requests_lithen_path, class: "m-navlist-link" %>
+          </p>
+        </li>
+        <li id="js-active">
+          <p class="m-navlist-tab">
+              <%= link_to "愚痴りたい人", requests_grumbl_path, class: "m-navlist-link"  %>
+          </p>
+        </li>
+        <li id="js-active">
+          <p class="m-navlist-tab">
+          <%= link_to "これから開催", new_request_path, class: "m-navlist-link" %>
+          </p>
+        </li>
+        <li id="js-active">
+          <p class="m-navlist-tab">
+          <%= link_to "登録", new_request_path, class: "m-navlist-link", data: {"turbolinks" => false} %>
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="l-main-area" id="request">
+    <div class="main-container">
+      <%= render partial: 'requests/request', collection: @requests %>
+    </div>
+  </div>
+</main>
